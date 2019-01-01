@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include "LTexture.h"
 #include "Player.h"
+#include "GameObjects.h"
+#include "Water.h"
 
 class Game
 {
@@ -16,8 +18,10 @@ private:
     SDL_Renderer* gRenderer = nullptr;
 
     LTexture playerTexture;
+    LTexture objectTexture;
 
     Player* player;
+    GameObjects** obj;
 
     int frames;
 
