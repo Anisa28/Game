@@ -17,7 +17,7 @@ Game::Game(const char* title, int xpos, int ypos, int width, int height, bool fu
     else
     {
         //Create window
-        window = SDL_CreateWindow( "Paasbaan-e-Zafar", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_ALWAYS_ON_TOP);
+        window = SDL_CreateWindow( "Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_ALWAYS_ON_TOP);
         if( window == nullptr )
         {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -54,8 +54,10 @@ void Game::Init()
 {
     isRunning = true;
     player = new Player(&playerTexture);
-    obj = new GameObjects*[1];
+    obj = new GameObjects*[3];
     obj[0] = new Water(&objectTexture);
+    obj[1] = new SmallPlatform(&objectTexture);
+    obj[2] = new BigPlatform(&objectTexture);
 }
 
 void Game::LoadMedia()
@@ -93,6 +95,8 @@ void Game::Render()
     SDL_RenderClear(gRenderer);
     player ->Render(gRenderer);
     obj[0] ->Render(gRenderer);
+    obj[1] ->Render(gRenderer);
+    obj[2] ->Render(gRenderer);
 }
 
 void Game::Update()
