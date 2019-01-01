@@ -54,6 +54,8 @@ void Game::Init()
 {
     isRunning = true;
     player = new Player(&playerTexture);
+    obj = new GameObjects*[1];
+    obj[0] = new Water(&objectTexture);
 }
 
 void Game::LoadMedia()
@@ -61,6 +63,10 @@ void Game::LoadMedia()
     if (!playerTexture.LoadFromFile("Player.png", gRenderer))
     {
         printf( "Failed to load player texture!\n" );
+    }
+    if (!objectTexture.LoadFromFile("Platform Tiles.png", gRenderer))
+    {
+        printf( "Failed to load platform texture!\n" );
     }
 }
 
@@ -86,6 +92,7 @@ void Game::Render()
     frames++;
     SDL_RenderClear(gRenderer);
     player ->Render(gRenderer);
+    obj[0] ->Render(gRenderer);
 }
 
 void Game::Update()
