@@ -54,10 +54,14 @@ void Game::Init()
 {
     isRunning = true;
     player = new Player(&playerTexture);
-    obj = new GameObjects*[3];
+    obj = new GameObjects*[7];
     obj[0] = new Water(&objectTexture);
     obj[1] = new SmallPlatform(&objectTexture);
     obj[2] = new BigPlatform(&objectTexture);
+    obj[3] = new MiniPlatform(&objectTexture);
+    obj[4] = new LongPlatform(&objectTexture);
+    obj[5] = new WaterRectanglePlatform(&objectTexture);
+    obj[6] = new WaterLongPlatform(&objectTexture);
 }
 
 void Game::LoadMedia()
@@ -97,6 +101,10 @@ void Game::Render()
     obj[0] ->Render(gRenderer);
     obj[1] ->Render(gRenderer);
     obj[2] ->Render(gRenderer);
+    //obj[3] ->Render(gRenderer);
+    obj[4] ->Render(gRenderer);
+    obj[5] ->Render(gRenderer);
+    obj[6] ->Render(gRenderer);
 }
 
 void Game::Update()
