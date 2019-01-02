@@ -8,6 +8,12 @@
 #include "Player.h"
 #include "GameObjects.h"
 #include "Water.h"
+#include "Small Platform.h"
+#include "Big Platform.h"
+#include "Mini Platform.h"
+#include "Long Platform.h"
+#include "Water Rectangle Platform.h"
+#include "Water Long Platform.h"
 
 class Game
 {
